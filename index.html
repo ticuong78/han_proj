@@ -1,120 +1,135 @@
-<!DOCTYPE html>
-<html>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style-1.css">
-    <title>M27</title>
+<!doctype html>
+<html lang="vi">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cửa hàng Minh Long</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <p> M27 Computer Gaming</p>
-    </header> 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href=""><img src=""></a></li>
-                <li><input type="search" placeholder="tìm kiếm sản phẩm...."><i class="fa-solid fa-magnifying-glass"></i></input></li>
-                <li><a href=""></a> <button><i class="fa-sharp fa-solid fa-cart-shopping"></i>Giỏ Hàng</button></li>
-                <li> <a href=""> Lịch sử <br>mua hàng</a></li>
-                <li> <a href=""> <i class="fa-brands fa-facebook"></i></a></li>
-                <li> <a href=""> <i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href=""> <i class="fa-brands fa-tiktok"></i></a></li>
-                <li><a href=""> <i class="fa-brands fa-instagram"></i></a></li>
-                <li id="address-from"><a href="#">Tiền Giang<i class="fa-solid fa-sort-down"></i></a></li>
-                <div class="address-from">
-                    <div class="address-from-content">
-                        <h2>Chọn địa chỉ nhận hàng <span id="address-close"> X Đóng</span></h2>
-                        <form action="">
-                            <p>Quý khách vui lòng nhập đầy đủ thông tin!</p>
-                            <select name="" >
-                                <option value="#">Chọn khu vực</option>
-                                <option value="#">Cần Thơ</option>
-                                <option value="#">Hồ Chí Minh</option>
-                            </select>
-                            <select name="" >
-                                <option value="#">Quận/Huyện</option>
-                                <option value="#">Cần Thơ</option>
-                                <option value="#">Hồ Chí Minh</option>
-                            </select>
-                            <select name="">
-                                <option value="#">Chọn Phường/Xã</option>
-                                <option value="#">Cần Thơ</option>
-                                <option value="#">Hồ Chí Minh</option>
-                            </select>
-                            <input type="text" placeholder=" Số Nhà , Tên Đường">
-                            <button>Xác Nhận</button>
-                        </form>
-                    </div>
-                </div>
-            </ul>
-         </div>
-     </nav> 
-<!---------------------->
-<div class="main-wrapper">
-        <div class="container">
-            <div class="product-div">
-                
-            </div>
+  <header class="topbar">
+    <div class="brand">
+      <!-- Logo chữ ML -->
+      <div class="logo" aria-hidden="true">ML</div>
+      <div class="brand-text">
+        <h1>Cửa hàng Minh Long</h1>
+        <p class="slogan">Điện thoại chính hãng – Giá tốt mỗi ngày</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#" class="nav-link active" data-section="products">Sản phẩm</a>
+      <a href="#" class="nav-link" data-section="warehouses">Kho hàng</a>
+      <a href="#" class="nav-link" data-section="contact">Liên hệ</a>
+      <a href="#" class="nav-link" data-section="auth">Đăng nhập / Đăng ký</a>
+      <div id="userArea" class="user-area" title="Tài khoản">
+        <!-- sẽ được JS cập nhật -->
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- SẢN PHẨM -->
+    <section id="products" class="section">
+      <div class="search-bar">
+        <input id="searchInput" type="search" placeholder="Tìm kiếm sản phẩm (ví dụ: iPhone, Samsung, 128GB)..." />
+      </div>
+
+      <div id="productGrid" class="grid"></div>
+    </section>
+
+    <!-- KHO HÀNG -->
+    <section id="warehouses" class="section hidden">
+      <div class="warehouse-layout">
+        <aside class="warehouse-aside">
+          <h3>Tỉnh/Thành</h3>
+          <ul id="provinceList" class="province-list">
+            <!-- JS render -->
+          </ul>
+        </aside>
+
+        <article class="warehouse-content">
+          <div id="warehouseHeader" class="warehouse-header">
+            <h2>Tình trạng kho</h2>
+            <p>Chọn một tỉnh/thành ở bên trái để xem danh sách kho và tồn.</p>
+          </div>
+
+          <div id="warehouseStats" class="stats-row">
+            <!-- JS render -->
+          </div>
+
+          <div id="warehouseContent" class="warehouse-cards">
+            <!-- JS render -->
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LIÊN HỆ -->
+    <section id="contact" class="section hidden">
+      <h2>Liên hệ</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Địa chỉ cửa hàng</h3>
+          <p>123 Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+          <p>Hotline: <a href="tel:0901234567">090 123 4567</a></p>
+          <p>Email: <a href="mailto:support@minhlong.vn">support@minhlong.vn</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Mạng xã hội</h3>
+          <ul class="socials">
+            <li><a target="_blank" href="https://www.facebook.com/share/16zibffTsi/">Facebook</a></li>
+            <li><a target="_blank" href="https://www.youtube.com/@trungquanpc">YouTube</a></li>
+            <li><a target="_blank" href="https://instagram.com">Instagram</a></li>
+            <li><a target="_blank" href="https://discord.com">Discord</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ĐĂNG NHẬP / ĐĂNG KÝ -->
+    <section id="auth" class="section hidden">
+      <div class="auth-panels">
+        <div class="panel">
+          <h2>Đăng nhập</h2>
+          <form id="loginForm" autocomplete="on">
+            <label>Email
+              <input type="email" id="emailLogin" required />
+            </label>
+            <label>Mật khẩu
+              <input type="password" id="passwordLogin" required />
+            </label>
+            <button type="submit" class="btn">Đăng nhập</button>
+          </form>
         </div>
 
-</div>
+        <div class="panel">
+          <h2>Đăng ký</h2>
+          <form id="registerForm" autocomplete="on">
+            <label>Họ tên
+              <input type="text" id="nameRegister" required />
+            </label>
+            <label>Email
+              <input type="email" id="emailRegister" required />
+            </label>
+            <label>Mật khẩu
+              <input type="password" id="passwordRegister" minlength="6" required />
+            </label>
+            <button type="submit" class="btn">Tạo tài khoản</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!---------------------->
-     <footer >
-            <div class="main-content">
-                <div class="left box">
-                    <h2>Thông Tin</h2>
-                    <div class="content-1">
-                        <p>Chuyên cung cấp các linh kiện điện tử thông minh như iphone , samsung,laptop, máy tính văn phòng, máy tính gaming.......</p>
-                        <div class="social">
-                            <a href="#"><span class="fab fa-facebook"></span></a>
-                            <a href="#"><span class="fab fa-twitter"></span></a>
-                            <a href="#"><span class="fab fa-instagram"></span></a>
-                            <a href="#"><span class="fab fa-youtube"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="center box">
-                    <h2>Địa Chỉ</h2>
-                    <div class="content-2">
-                        <div class="palce">
-                            <span class="fas fa-map-marker-alt"></span>
-                            <span class="text">204 ấp Bình Tạo , Xã Trung An, TP Mỹ Tho,Tiền Giang</span>
-                        </div>
-                        <div class="phone">
-                            <span class="fas fa-phone-alt"></span>
-                            <span class="text">0825444779</span>
-                        </div>
-                        <div class="email">
-                            <span class="fas fa-envelope"></span>
-                            <span class="text">mtran2587@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="rightbox">
-                    <h2>Liên Hệ Với Chúng Tôi </h2>
-                    <div class="content-3">
-                        <from action="#">
-                            <div class="email">
-                                <div class="text">Email *</div>
-                                <input type="email" required>
-                            </div>
-                            <div class="msg">
-                                <div class="text">Message *</div>
-                                <textarea name="name" id="" cols="80" required></textarea>
-                            </div>
-                        </from>
-                        <div class="btn">
-                            <button>Gửi</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="logo small">ML</div>
+      <span>© <span id="year"></span> Minh Long Mobile</span>
+    </div>
+    <div class="footer-right">Made with ❤️ by my team</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>

@@ -8,7 +8,7 @@ const products = [
   { id: 3, name: "Galaxy S24 256GB", brand: "Samsung", price: 19990000, img: "https://cdn.nguyenkimmall.com/images/detailed/916/10057178-dien-thoai-samsung-galaxy-s24-256gb-vang-1.jpg", tags:["samsung","galaxy","256gb"] },
   { id: 4, name: "Galaxy A55 8/256", brand: "Samsung", price: 8490000,  img: "https://tse1.mm.bing.net/th/id/OIP.dpWhwmQL_-cQTp7H0ePJKQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3", tags:["a55","budget"] },
   { id: 5, name: "Xiaomi 14T 12/256", brand: "Xiaomi",  price: 11990000, img: "https://tse2.mm.bing.net/th/id/OIP.bYhdNUkrbiMRK-qhBlG-RQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3", tags:["xiaomi","14t"] },
-  { id: 6, name: "OPPO Reno12 12/256", brand: "OPPO",   price: 10490000, img: "https://www.reliancedigital.in/akamai/images/products/OppoReno12Pro_20.jpg", tags:["oppo","reno"] },
+  { id: 6, name: "OPPO Reno12 12/256", brand: "OPPO",   price: 10490000, img: "https://www.reliancedigital.in/akamai/images/products/OppoReno12Pro_20.jpg", tags:["oppo","reno"] }
 ];
 
 // Kho hàng theo tỉnh

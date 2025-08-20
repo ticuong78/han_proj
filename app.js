@@ -304,6 +304,45 @@ function initWarehouses(){
   renderProvinceList();              // danh sách bên trái
   renderWarehousesFor("Tiền Giang"); // mặc định mở Tiền Giang
 }
+/* =========================
+   THEME (Light / Dark)
+========================= */
+const LS_THEME = "ml_theme";
+
+function applyTheme(theme){
+  const root = document.documentElement;
+  root.setAttribute("data-theme", theme);
+  const btn = document.getElementById("themeToggle");
+  if (btn){
+    btn.setAttribute("aria-pressed", String(theme === "dark"));
+    btn.textContent = theme === "dark" ? "🌙" : "☀️";
+  }
+  localStorage.setItem(LS_THEME, theme);
+}
+
+function initTheme(){
+  // ưu tiên cấu hình đã lưu, sau đó đến hệ thống
+  let theme = localStorage.getItem(LS_THEME);
+  if (theme !== "light" && theme !== "dark"){
+    theme = window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  applyTheme(theme);
+
+  // nếu người dùng không ép bằng localStorage thì theo dõi thay đổi hệ thống
+  window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change", (e)=>{
+    if (!localStorage.getItem(LS_THEME)) applyTheme(e.matches ? "dark" : "light");
+  });
+
+  // nút toggle
+  const btn = document.getElementById("themeToggle");
+  if (btn){
+    btn.addEventListener("click", ()=>{
+      const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      applyTheme(next);
+    });
+  }
+}
+
 
 /* =========================
    NAV & KHỞI TẠO
@@ -369,6 +408,7 @@ function applyUserInput() {
    BOOT
 ========================= */
 function boot(){
+  initTheme();
   setYear();
   setupNav();
 

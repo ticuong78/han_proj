@@ -1,4 +1,6 @@
-:root{
+/* DARK là mặc định */
+:root,
+[data-theme="dark"]{
   --bg:#0b0f14;
   --card:#121823;
   --muted:#7a8aa0;
@@ -9,6 +11,24 @@
   --warn:#fbbf24;
   --ok:#34d399;
   --border:#223045;
+  --topbar-bg: rgba(11,15,20,.92);
+  --nav-hover-bg: #0e141d;
+}
+
+/* LIGHT */
+[data-theme="light"]{
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --muted:#657084;
+  --text:#0b1220;
+  --brand:#10b981;        /* có thể giữ nguyên cũng được */
+  --accent:#3b82f6;
+  --danger:#ef4444;
+  --warn:#f59e0b;
+  --ok:#10b981;
+  --border:#e5e7eb;
+  --topbar-bg: rgba(255,255,255,.92);
+  --nav-hover-bg: rgba(0,0,0,.06);
 }
 
 *{box-sizing:border-box}
@@ -18,7 +38,8 @@ a:hover{text-decoration:underline}
 
 .topbar{
   position:sticky;top:0;z-index:10;
-  background:rgba(11,15,20,.9);backdrop-filter:saturate(140%) blur(6px);
+  background: var(--topbar-bg);
+  backdrop-filter:saturate(140%) blur(6px);
   border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
   padding:.75rem 1rem;
@@ -40,7 +61,7 @@ a:hover{text-decoration:underline}
   padding:.5rem .8rem;border-radius:999px;background:transparent;color:var(--text);
   border:1px solid transparent;transition:.2s;
 }
-.nav-link:hover{border-color:var(--border);background:#0e141d}
+.nav-link:hover{border-color:var(--border);background: var(--nav-hover-bg);}
 .nav-link.active{background:var(--card);border-color:var(--border)}
 .user-area{
   margin-left:.25rem;
@@ -137,3 +158,15 @@ a:hover{text-decoration:underline}
 @media (max-width: 800px){
   .warehouse-layout{grid-template-columns:1fr}
 }
+
+.icon-btn{
+  margin-left:.25rem;
+  width:40px;height:40px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--card);color:var(--text);
+  border:1px solid var(--border);cursor:pointer;
+}
+
+/* Hover nav dùng màu phù hợp từng theme */
+.nav-link:hover{ border-color:var(--border); background:rgba(0,0,0,.08); }
+[data-theme="dark"] .nav-link:hover{ background:#0e141d; }

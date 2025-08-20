@@ -205,7 +205,19 @@ a:hover{text-decoration:underline}
 }
 .promo-content{
   position:absolute; inset:0; z-index:2;
-  display:flex; align-items:center; padding:1.2rem; gap:1rem;
+  padding: clamp(16px, 4vw, 56px);
+  display:flex; align-items:center;
+}
+
+.promo-content > div{
+  max-width: min(680px, 72%);                      /* khối chữ gọn lại */
+}
+
+[data-theme="dark"] .promo-overlay{
+  background: linear-gradient(90deg, rgba(0,0,0,.65), transparent 70%);
+}
+[data-theme="light"] .promo-overlay{
+  background: linear-gradient(90deg, rgba(255,255,255,.78), transparent 70%);
 }
 .promo-badge{
   display:inline-block; font-weight:800; font-size:.8rem;
@@ -213,10 +225,17 @@ a:hover{text-decoration:underline}
   background:linear-gradient(135deg,var(--brand),var(--accent));
   color:#0b0f14;
 }
-.promo-title{ margin:.35rem 0 0; font-size:1.6rem; line-height:1.2 }
-.promo-sub{ margin:.25rem 0 .6rem; color:var(--muted) }
+.promo-title{ margin:.35rem 0 0; font-size:1.6rem; line-height:1.2 text-shadow: 0 2px 12px rgba(0,0,0,.45), 0 0 1px rgba(0,0,0,.5); }
+.promo-sub{ margin:.25rem 0 .6rem; color:var(--muted); text-shadow: 0 1px 8px rgba(0,0,0,.35);}
 .promo-cta{ display:inline-block; padding:.55rem .9rem; border-radius:10px; font-weight:700;
   background:var(--card); border:1px solid var(--border); color:var(--text); text-decoration:none;
+}
+
+[data-theme="light"] .promo-title{
+  text-shadow: 0 2px 10px rgba(0,0,0,.28), 0 0 1px rgba(0,0,0,.35);
+}
+[data-theme="light"] .promo-sub{
+  text-shadow: 0 1px 6px rgba(0,0,0,.25);
 }
 .promo-cta:hover{ background:var(--nav-hover-bg) }
 

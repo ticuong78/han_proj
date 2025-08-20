@@ -351,7 +351,7 @@ const promos = [
     badge: "BACK TO SCHOOL",
     title: "Giảm đến 20% phụ kiện & điện thoại",
     sub: "Áp dụng HSSV, kèm quà tặng ốp + dán màn",
-    img: "https://s.meta.com.vn/Data/image/2022/07/30/LDP-back-to-school-1236x700.png",
+    img: "https://cdn.sforum.vn/sforum/wp-content/uploads/2023/07/sale-back-to-school-2023.1.jpg",
     cta: { label: "Xem ưu đãi", href: "#products" }
   },
   {

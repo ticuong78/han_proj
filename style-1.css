@@ -1,0 +1,304 @@
+header{
+    background: #000000;
+    text-align: center;
+    display: flex;
+    color: #dae6e6;
+  }
+  *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  ul{
+    list-style: none;
+  }
+  li{
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  body{
+    background: #dbdada;
+    line-height: 1.5;
+  }
+  nav{
+    background: hsl(197, 77%, 50%);
+  }
+  nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  nav ul li, a
+  {
+    color: #0a0804;
+    font-size: 20px;
+  }
+  nav ul li:nth-child(2){
+    position: relative;
+  }
+  nav ul li:nth-child(2) input{
+  color: rgb(200, 221, 221);
+  height: 30px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  padding-left: 6px;
+  outline: none;
+  }
+  nav ul li:nth-child(2) i{
+  position: absolute;
+  font-size: 15px;
+  right: 12px;
+  color: black;
+  line-height: 30px;
+  cursor: pointer;
+  }
+  nav ul li:nth-child(4){
+    cursor: pointer;
+  }
+  nav ul li:nth-child(3) button{
+    cursor: pointer;
+    height: 30px;
+    padding: 0 12px;
+    background-color: rgb(5, 5, 10);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+  }
+  nav ul li:nth-child(3) button i {
+    margin-right: 6px;
+  }
+  nav ul li:nth-child(3) button:hover {
+    background-color: #585353;
+  }
+  nav ul li:nth-child(4):hover a{
+    color: rgb(241, 241, 12);
+  }
+  nav ul li:nth-child(5):hover i {
+    color: rgb(24, 11, 206);
+  }
+  nav ul li:nth-child(6):hover i {
+    color: rgb(228, 16, 9);
+  }
+  nav ul li:nth-child(7):hover i {
+    color: rgb(194, 23, 185);
+  }
+  nav ul li:nth-child(8):hover i {
+    color: rgb(226, 128, 17);
+  }
+  nav ul li:nth-child(9) a{
+    cursor: pointer;
+    color: yellow;
+  }
+  .menu{
+    background-color: #e4dede;
+    padding: 12PX;
+    }
+    .menu > ul > li {
+      padding: 15px 6px;
+      transition: all 0.3s ease;
+    }
+    .menu ul{
+      display: flex;
+      justify-content: space-between;
+    }
+    .menu ul li a {
+      color: #0e0707;
+      font-size: 20px;
+    }
+    .menu ul li a i {
+      margin-right: 6px;
+      font-size: 20px;
+    }
+    .menu ul li a:hover {
+      color: rgb(224, 51, 8);
+    }
+     /*---------------submenu-------*/
+     .menu-content ul li {
+      position: relative;
+     }
+     .submenu{
+    position: absolute;
+    background-color: #dbd6d6;
+    width: 300px;
+    height: auto;
+    left: 0;
+    top: 100%;
+    display: none;
+    z-index: 100;
+     }
+     .submenu ul{
+    display: flex;
+    flex-direction: column;
+     }
+     .submenu ul li {
+      padding: 6px 0;
+     }
+     .submenu ul li:hover{
+      background: none;
+     }
+     .submenu ul li:hover a{
+      color: rgb(165, 148, 143);
+     }
+     .menu-content ul li:hover .submenu{
+      display: block;
+     }
+     .submenu2{
+      position: absolute;
+      background-color: #f8f6f6;
+      width: 300px;
+      height: auto;
+      left: 0;
+      top: 100%;
+      padding: 15px;
+      display: none;
+      z-index: 110;
+       }
+       .submenu2 ul{
+      display: flex;
+      flex-direction: column;
+       }
+       .submenu2 ul li {
+        padding: 6px 0;
+       }
+       .submenu2 ul li:hover{
+        background: none;
+       }
+       .submenu2 ul li:hover a{
+        color: rgb(216, 64, 17);
+       }
+       .menu-content ul li:hover .submenu2{
+        display: block;
+       }
+       /*----------address-from---------*/
+       .address-from{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        display: flex;
+      text-align: center;
+      color: #0f0505;
+      justify-content: center;
+      align-items: center;
+      display: none;
+      z-index: 100;
+       }
+       .address-from-content{
+        width: 450px;
+        height: 450px;
+        background-color: #f8f7f7;
+        border-radius: 5px;
+       }
+       .address-from-content form{
+        padding: 0 40px;
+       }
+       .address-from-content h2{
+        font-size: 15px;
+        padding: 12px 0;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+       }
+       .address-from-content h2 span{
+        display: block;
+        position: absolute;
+        height: 30px;
+        padding: 0 6px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 30px;
+        color: #333;
+        border-radius: 5px;
+       }
+       .address-from-content form input,select {
+        height: 40px;
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        padding: 8px;
+        border-radius: 6px;
+       }
+       .address-from-content form button {
+        margin-top: 20px;
+        height: 50px;
+        width: 50%;
+        background-color: #db1313;
+        font-size: medium;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        color: #ddd;
+        border-radius: 5px;
+       }
+  /*---------*/     
+footer{
+bottom: 0px;
+width: 100%;
+background: #080707;
+color: #ecebeb;
+}
+.main-content{
+  display: flex;
+}
+.main-content .box{
+  flex-basis: 20%;
+  padding: 10px 20px;
+}
+.box h2{
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.box .content-1{
+  margin: 20px 0 0 0 ;
+}
+.box .content-2{
+  margin: 20px 0 0 0 ;
+}
+.box .content-3{
+  margin: 20px 0 0 0 ;
+}
+.left .content-1 .social {
+margin: 20px 0 0 0;
+}
+.left .content-3 .social {
+  margin: 20px 0 0 0;
+}
+.left .content-2 .social {
+    margin: 20px 0 0 0;
+}
+.left .content-1  .social a{
+  padding: 0 2px;
+}
+.left .content-1  .social a span{
+  height: 40px;
+  width: 40px;
+  background: #1a1a1a;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+.left .content-1  .social a span:hover{
+  background: #f12020;
+}
+.left .content-1 p{
+  text-align: justify;}
+ /*-------cc--*/  
+
+    
+  

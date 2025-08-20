@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Libre+Franklin:ital,wght@1,100&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Castoro Titling', cursive;
+font-family: 'Libre Franklin', sans-serif;
+}
+.Logo{
+    position: absolute;
+    z-index: 10;
+}
+.logo-home{
+    width: 250px;
+}
+.bars{
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    margin-right: 40px;
+    cursor: pointer;
+}
+.bars i{
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.7)
+}
+#Main-Slider{
+    width: 100%;
+    height: 100vh;
+}
+.wrapper , .slider{
+    width: 100%;
+    height: 100%;
+}
+.slider .image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+audio{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+.slider-title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.slider-title h2{
+    font-size: 36px;
+    padding-bottom: 20px;
+    text-shadow: 1px 1px 1px #000, -1px -1px 1px #000000;
+}
+.slider-title span{
+    text-shadow: 1px 1px 1px #000, -1px -1px 1px #020202;
+}
+.slider-title h2 , .slider-title span{
+   color: white;
+   text-align: center;
+   cursor: context-menu;
+}
+.button-link{
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  padding: 10px;
+}
+.button-link:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.slider{
+    user-select: none;
+}
+
+/* Modal */
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    /* animation: fadeIn linear 0.3s; */
+    z-index: 1;
+}
+.openError{
+    display: block !important;
+}
+.open{
+    display: flex !important;
+}
+.remove{
+    display: none !important;
+}
+.modal_overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal_container{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 600px;
+    min-height: 480px;
+    z-index: 100;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+}
+.modal_container_list li a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    font-size: 40px;
+    margin: 40px 0;
+    font-weight: 700;
+}
+.modal_container_list li{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 70px;
+}
+.modal_container_list li a{
+  position: relative;
+  display: inline-block;
+}
+
+.modal_container_list li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease-out;
+}
+
+.modal_container_list li a:hover::after {
+  width: 100%;
+}
+
+
+/*  */
+.modal_container-register{
+    display: none;
+}
+.modal_container-register input{
+    display: block;
+    width: 70%;
+    margin: 40px auto;
+    padding: 12px 0;
+    padding-left: 4px;
+    font-size: 16px;
+}
+.modal_container-register .js-register{
+    width: 70%;
+    background-color: aqua;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #000, 1px 1px 1px #000000;
+    font-weight: 700;
+}
+.modal_container-register .js-login{
+    width: 70%;
+    background-color: aqua;
+    display: block;
+    margin: auto;
+    height: 46.4px;
+    text-align: center;
+    line-height: 46.4px;
+    text-decoration: none;
+}
+.modal_container_input{
+    display: block;
+    width: 100%;
+}
+.label-input>p{
+    position: absolute;
+    margin-top: -30px;
+    color: rgb(255, 53, 53);
+    margin-left: 90px;
+}
+.label-input>.label-input-error-1{
+    display: none;
+}
+.label-input>.label-input-error-2{
+    display: none;
+}
+.label-input>.label-input-error-3{
+    display: none;
+}
+.label-input>.label-input-error-4{
+    display: none;
+}
+.label-input>.label-input-error-5{
+    display: none;
+}
+.label-input>.label-input-error-6{
+    display: none;
+}
+/* login modal */
+.modal_container-login{
+    display: none;
+}
+.modal_container-login input{
+    display: block;
+    width: 70%;
+    margin: 40px auto;
+    padding: 12px 0;
+    padding-left: 4px;
+    font-size: 16px;
+}
+.modal_container-login .js-login{
+    width: 70%;
+    background-color: aqua;
+    display: block;
+    margin: auto;
+    height: 56.4px;
+    text-align: center;
+    line-height: 46.4px;
+    text-decoration: none;
+}
+.login-control>input{
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.login-control p,.login-control a,.register-control p,.register-control a{
+    color: white;
+    text-shadow: 1px 1px 1px #000, 1px 1px 1px #000000;
+}
+.login-control p{
+    margin-left: 40%;
+    margin-top: 5%;
+}

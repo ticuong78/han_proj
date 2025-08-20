@@ -343,6 +343,89 @@ function initTheme(){
   }
 }
 
+/* =========================
+   BANNER KHUYẾN MÃI
+========================= */
+const promos = [
+  {
+    badge: "BACK TO SCHOOL",
+    title: "Giảm đến 20% phụ kiện & điện thoại",
+    sub: "Áp dụng HSSV, kèm quà tặng ốp + dán màn",
+    img: "https://s.meta.com.vn/Data/image/2022/07/30/LDP-back-to-school-1236x700.png",
+    cta: { label: "Xem ưu đãi", href: "#products" }
+  },
+  {
+    badge: "NGÀY VÀNG 15-16",
+    title: "iPhone giảm 1.000.000đ",
+    sub: "Số lượng có hạn • Hỗ trợ trả góp 0%",
+    img: "https://onewaymobile.vn/images/news/2022/11/original/iphone-15-tin-don_1668236260.png",
+    cta: { label: "Mua ngay", href: "#products" }
+  },
+  {
+    badge: "END OF SEASON",
+    title: "Android Flagship Sale",
+    sub: "Galaxy / Xiaomi / OPPO – ưu đãi phí chuyển đổi",
+    img: "https://cdn.wccftech.com/wp-content/uploads/2019/12/best-android-flagship-for-holidays-740x373.png",
+    cta: { label: "Săn deal", href: "#products" }
+  }
+];
+
+function renderPromo(){
+  const root = document.getElementById("promo");
+  if (!root) return;
+
+  root.innerHTML = `
+    <div class="promo-viewport">
+      <div class="promo-track" id="promoTrack">
+        ${promos.map(p => `
+          <div class="promo-slide">
+            <img src="${p.img}" alt="${p.title}">
+            <div class="promo-overlay"></div>
+            <div class="promo-content">
+              <div>
+                <span class="promo-badge">${p.badge}</span>
+                <h2 class="promo-title">${p.title}</h2>
+                <p class="promo-sub">${p.sub}</p>
+                <a class="promo-cta" href="${p.cta.href}">${p.cta.label}</a>
+              </div>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+    <div class="promo-nav">
+      <button class="promo-btn" id="promoPrev" aria-label="Trước">‹</button>
+      <button class="promo-btn" id="promoNext" aria-label="Sau">›</button>
+    </div>
+    <div class="promo-dots" id="promoDots">
+      ${promos.map((_,i)=>`<span class="promo-dot ${i===0?'active':''}" data-i="${i}"></span>`).join("")}
+    </div>
+  `;
+
+  const track = document.getElementById("promoTrack");
+  const dots  = Array.from(document.querySelectorAll(".promo-dot"));
+  let i = 0, timer;
+
+  function goto(idx){
+    i = (idx + promos.length) % promos.length;
+    track.style.transform = `translateX(-${i*100}%)`;
+    dots.forEach((d,k)=>d.classList.toggle("active", k===i));
+  }
+
+  function play(){ stop(); timer = setInterval(()=>goto(i+1), 5000); }
+  function stop(){ if (timer) clearInterval(timer); }
+
+  document.getElementById("promoPrev").onclick = ()=>{ goto(i-1); play(); };
+  document.getElementById("promoNext").onclick = ()=>{ goto(i+1); play(); };
+  dots.forEach(d=>d.onclick = ()=>{ goto(Number(d.dataset.i)); play(); });
+
+  root.addEventListener("mouseenter", stop);
+  root.addEventListener("mouseleave", play);
+
+  play();
+}
+
+
 
 /* =========================
    NAV & KHỞI TẠO
@@ -415,6 +498,7 @@ function boot(){
   // Áp dụng dữ liệu nhập nhanh (nếu có)
   applyUserInput();
 
+  renderPromo();
   // Auth
   setupAuthForms();
   renderUserArea();

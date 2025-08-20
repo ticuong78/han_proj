@@ -170,3 +170,78 @@ a:hover{text-decoration:underline}
 /* Hover nav dùng màu phù hợp từng theme */
 .nav-link:hover{ border-color:var(--border); background:rgba(0,0,0,.08); }
 [data-theme="dark"] .nav-link:hover{ background:#0e141d; }
+
+
+
+
+
+
+
+
+
+.promo{
+  position: relative;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--card);
+  margin-bottom:1rem;
+}
+.promo-track{ display:flex; width:100%; transition:transform .45s ease; }
+.promo-slide{
+  min-width:100%; position:relative; height:280px; isolation:isolate;
+}
+.promo-slide img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  filter:saturate(105%) contrast(105%);
+}
+.promo-overlay{
+  position:absolute; inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.55),transparent 60%);
+  z-index:1;
+}
+[data-theme="light"] .promo-overlay{
+  background:linear-gradient(90deg,rgba(255,255,255,.35),transparent 60%);
+}
+.promo-content{
+  position:absolute; inset:0; z-index:2;
+  display:flex; align-items:center; padding:1.2rem; gap:1rem;
+}
+.promo-badge{
+  display:inline-block; font-weight:800; font-size:.8rem;
+  padding:.25rem .55rem; border-radius:999px;
+  background:linear-gradient(135deg,var(--brand),var(--accent));
+  color:#0b0f14;
+}
+.promo-title{ margin:.35rem 0 0; font-size:1.6rem; line-height:1.2 }
+.promo-sub{ margin:.25rem 0 .6rem; color:var(--muted) }
+.promo-cta{ display:inline-block; padding:.55rem .9rem; border-radius:10px; font-weight:700;
+  background:var(--card); border:1px solid var(--border); color:var(--text); text-decoration:none;
+}
+.promo-cta:hover{ background:var(--nav-hover-bg) }
+
+.promo-nav{
+  position:absolute; inset-block:0; inset-inline:0;
+  display:flex; justify-content:space-between; align-items:center; z-index:3; pointer-events:none;
+}
+.promo-btn{
+  pointer-events:auto; width:40px; height:40px; border-radius:50%;
+  border:1px solid var(--border); background:var(--card); color:var(--text); cursor:pointer;
+  margin:0 .5rem;
+}
+
+.promo-dots{
+  position:absolute; left:50%; transform:translateX(-50%);
+  bottom:.6rem; display:flex; gap:.4rem; z-index:3;
+}
+.promo-dot{
+  width:8px; height:8px; border-radius:50%; border:1px solid var(--border);
+  background:rgba(255,255,255,.15);
+}
+[data-theme="light"] .promo-dot{ background:rgba(0,0,0,.08); }
+.promo-dot.active{ background:var(--accent); border-color:var(--accent); }
+
+@media (min-width: 900px){
+  .promo-slide{ height:360px; }
+  .promo-title{ font-size:2rem; }
+}
